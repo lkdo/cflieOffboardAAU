@@ -4,6 +4,8 @@ Implements a simple external/offboard position control loop for the Crazyflie, b
 
 Code meant to compile on the Windows platform.
 
+ToDo: CMake for Windows
+
 Dependenies: libcflieAAU ( https://github.com/lkdo/libcflieAAU )
        
 Meant to be useful when starting working with the Crazyflie, at Aalborg University Automation & Control Lab.
