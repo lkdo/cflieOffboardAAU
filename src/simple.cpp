@@ -87,7 +87,10 @@ int main(int argc, char **argv) {
 	//	
 	//}
 
-	//delete log;
+	//delete cflieCopter;
+	//delete crRadio;
+    //delete log;
+
 	//exit(0);
 // -----------------------------------------------------------
 
