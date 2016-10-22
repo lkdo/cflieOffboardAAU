@@ -5,5 +5,8 @@ Implements a simple external/offboard position control loop for the Crazyflie, b
 Code meant to compile on the Windows platform.
 
 Dependenies:
-      - libusb (tested with libusb-1.0.20)
-      - libcflieAAU (https://github.com/lkdo/libcflieAAU)
+
+       a) libusb (tested with libusb-1.0.20)
+       
+       b) libcflieAAU (https://github.com/lkdo/libcflieAAU)
+       
