@@ -10,3 +10,4 @@ Dependenies:
        
        b) libcflieAAU (https://github.com/lkdo/libcflieAAU)
        
+Meant to be useful when starting working with the Crazyflie, at Aalborg University Automation & Control Lab.
