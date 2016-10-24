@@ -17,6 +17,7 @@ private:
 	std::ofstream *m_outCFBaro; 
 	std::ofstream *m_outCFBat; 
 	std::ofstream *m_outCFStab; 
+	std::ofstream *m_outCFSMRM_roll;
 	std::ofstream *m_outCFExtPos; // as received by the firmware, and send back through the logs
 
 	std::ofstream *m_outGoT;
