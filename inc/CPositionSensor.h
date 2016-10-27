@@ -15,13 +15,17 @@ private:
 	
 	int m_P[2][3]; // last two good one(s) 
 	double m_timestamp[2];
+	long int m_GoT_timestamp[2];
 
 	int m_P_raw[2][3]; // last two raw one(s) 
 	double m_timestamp_raw[2];
-	
+	long int m_GoT_timestamp_raw[2];
+
     // used inside readNewData() 
 	bool isThisGoodData();
 	bool isThisGoodData2();
+
+	int m_transmitter_ID;
 
 	CLogs *m_log; // the pointer to my logging object
 
@@ -30,7 +34,7 @@ public:
 	CPositionSensor(const char* host, const char* port, CLogs * log);
 	
 	// Get a first measurement from GoT 
-	void init();
+	void init(int transID=0);
     
 	// read new data 
 	bool readNewData();

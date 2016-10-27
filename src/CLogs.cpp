@@ -43,14 +43,14 @@ CLogs::CLogs()
 
 }
 
-void CLogs::GoT(double timestamp, double *XYZ)
+void CLogs::GoT(double timestamp, long int GoT_timestamp, double *XYZ)
 {
-	(*m_outGoT) << timestamp << " " << XYZ[0] << " " << XYZ[1] << " " << XYZ[2] << std::endl;
+	(*m_outGoT) << timestamp << " " << GoT_timestamp << " " << XYZ[0] << " " << XYZ[1] << " " << XYZ[2] << std::endl;
 }
 
-void CLogs::GoT_raw(double timestamp, double *XYZ)
+void CLogs::GoT_raw(double timestamp, long int GoT_timestamp, double *XYZ)
 {
-	(*m_outGoTRaw) << timestamp << " " << XYZ[0] << " " << XYZ[1] << " " << XYZ[2] << std::endl;
+	(*m_outGoTRaw) << timestamp << " " << GoT_timestamp << " " << XYZ[0] << " " << XYZ[1] << " " << XYZ[2] << std::endl;
 }
 
 

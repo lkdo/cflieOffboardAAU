@@ -28,8 +28,8 @@ public:
 
 	CLogs();
 	
-	void GoT(double timestamp, double *XYZ);
-	void GoT_raw(double timestamp, double *XYZ);
+	void GoT(double timestamp, long int GoT_timestamp, double *XYZ);
+	void GoT_raw(double timestamp, long int GoT_timestamp, double *XYZ);
 
 	void CTRL(double timestamp, double *RPYT);
 	void REF(double timestamp, double *ref_XYZ);
