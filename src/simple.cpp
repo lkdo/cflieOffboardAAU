@@ -97,7 +97,12 @@ int main(int argc, char **argv) {
 
 	// Initialize the GoT connection 
 	CPositionSensor *GoT = new CPositionSensor("localhost", DEFAULT_PORT, log);
-	GoT->init();
+
+	int tID=0;
+	printf_s("\n GoT Transmitter ID (leave 0 to receive all packets): ");
+	scanf_s("%d", &tID);
+	GoT->init(tID);
+    
 	GoT->giveP(ctrl_ref_XYZ);  
 
 	// Initialize the position controller 
