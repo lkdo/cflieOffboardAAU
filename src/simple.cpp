@@ -205,9 +205,18 @@ int main(int argc, char **argv) {
 	cflieCopter->setYaw(0);
 	cflieCopter->setThrust(0);
 
-	cflieCopter->cycle(); // to actually send it
+    // Do a small loop to make sure the kill engine command is sent
+	exit_loop = false;
+	double time1=currentTime(); // seconds 
+	while ( (cflieCopter->cycle()) && (!exit_loop) )
+	{
+		if (currentTime() - time1 > 1.0) 
+		{
+			exit_loop = true;
+		}
+	}
 
-	mylogtime = currentTime() - mylogtime;
+	mylogtime = currentTime() - mylogtime - 1;
 	std::cout << "Run time was:" << mylogtime << " [sec].";
 
 	delete GoT;
