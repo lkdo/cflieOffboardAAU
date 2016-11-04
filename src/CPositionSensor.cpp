@@ -161,18 +161,18 @@ m_log->GoT(m_timestamp[0], m_GoT_timestamp[0], tmp2);
 // Make the transform to XYZ NED, meters
 double CPositionSensor::givePRaw(double *XYZ)
 {
-	XYZ[0] =  m_P_raw[0][0]/1000.0;
-	XYZ[1] = -m_P_raw[0][1]/1000.0;
-	XYZ[2] = -m_P_raw[0][2]/1000.0;
+	XYZ[0] = m_P_raw[0][0]/1000.0;
+	XYZ[1] = m_P_raw[0][1]/1000.0;
+	XYZ[2] = m_P_raw[0][2]/1000.0;
 	return (m_timestamp_raw[0] - m_timestamp_raw[1]);
 }
 
 // Make the transform to XYZ NED, meters
 double CPositionSensor::giveP(double *XYZ)
 {
-	XYZ[0] =  m_P[0][0]/1000.0;
-	XYZ[1] = -m_P[0][1]/1000.0;
-	XYZ[2] = -m_P[0][2]/1000.0;
+	XYZ[0] = m_P[0][0]/1000.0;
+	XYZ[1] = m_P[0][1]/1000.0;
+	XYZ[2] = m_P[0][2]/1000.0;
 	return (m_timestamp[0] - m_timestamp[1]);
 }
 

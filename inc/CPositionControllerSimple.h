@@ -4,17 +4,17 @@
 #include "CPID.h"
 #include "CLogs.h"
 
-// Roll
-#define _PID_ROLL_KP  5.0f
+// Roll (x-direction)
+#define _PID_ROLL_KP  -5.0f
 #define _PID_ROLL_KI  0.0f
-#define _PID_ROLL_KD  6.5f
+#define _PID_ROLL_KD  -6.5f
 #define _PID_ROLL_iLIMITHIGH 606.0f
 #define _PID_ROLL_iLIMITLOW -606.0f
 #define _PID_ROLL_MAXVALUE 35.0f
 #define _PID_ROLL_MINVALUE -35.0f
 #define _PID_ROLL_OFFSET 0.0f
 
-// Pitch 
+// Pitch (y-direction)
 #define _PID_PITCH_KP 5.0f
 #define _PID_PITCH_KI 0.0f
 #define _PID_PITCH_KD 6.5f
@@ -24,7 +24,7 @@
 #define _PID_PITCH_MINVALUE -35.0f
 #define _PID_PITCH_OFFSET 0.0f
 
-// Thrust
+// Thrust (z-direction)
 #define _PID_THRUST_KP 15000.00f
 #define _PID_THRUST_KI 4000.0f
 #define _PID_THRUST_KD 12000.0f

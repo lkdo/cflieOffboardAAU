@@ -24,6 +24,7 @@
 
 typedef std::numeric_limits< double > dbl;
 
+// MAIN(): CONTROL LOOP 
 int main(int argc, char **argv) {
 
 	double sensor_XYZ[3] = { 0,0,0 };   /* meters, meters, meters, meters */
@@ -46,7 +47,7 @@ int main(int argc, char **argv) {
 	CCrazyflie *cflieCopter = new CCrazyflie(crRadio);
     std::cout << "Initializing connection. ";
 	cflieCopter->setSendSetpoints(true);
-	cflieCopter->setSendExtPosition(true); // if, for example, we want to make position control on the quad, instead of in this program
+	cflieCopter->setSendExtPosition(false); // if, for example, we want to make position control on the quad, instead of in this program
 
 	// First command
 	cflieCopter->setRoll(0);
@@ -106,7 +107,7 @@ int main(int argc, char **argv) {
 	GoT->giveP(ctrl_ref_XYZ);  
 
 	// Initialize the position controller 
-	ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] - 0.25; // take off to x meters
+	ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] + 0.25; // take off to x meters
 	CPositionController *posController = new CPositionController(ctrl_ref_XYZ, log);
 
 	double mylogtime = currentTime();
@@ -129,11 +130,11 @@ int main(int argc, char **argv) {
 				posController->giveCmd(ctrl_cmd_RPYT);
 
 				cflieCopter->setRoll(ctrl_cmd_RPYT[0]);
-				cflieCopter->setPitch(-ctrl_cmd_RPYT[1]);
+				cflieCopter->setPitch(ctrl_cmd_RPYT[1]); 
 				cflieCopter->setYaw(ctrl_cmd_RPYT[2]);
 				cflieCopter->setThrust(ctrl_cmd_RPYT[3]);
 
-                if (sensor_XYZ[2] < -2.0)
+                if (sensor_XYZ[2] > 3.0)
                 {
 					cflieCopter->setThrust(_PID_THRUST_OFFSET*0.95);
 					std::cout << "---- HEIGHT SAFETY: " << sensor_XYZ[2] << " \n";
@@ -165,10 +166,10 @@ int main(int argc, char **argv) {
 						ctrl_ref_XYZ[0] = ctrl_ref_XYZ[0] - scale_ref;
 						break;
 					case KEY_LEFT:
-						ctrl_ref_XYZ[1] = ctrl_ref_XYZ[1] - scale_ref; // y position meters
+						ctrl_ref_XYZ[1] = ctrl_ref_XYZ[1] + scale_ref; // y position meters
 						break;
 					case KEY_RIGHT:
-						ctrl_ref_XYZ[1] = ctrl_ref_XYZ[1] + scale_ref;
+						ctrl_ref_XYZ[1] = ctrl_ref_XYZ[1] - scale_ref;
 						break;
 					default:
 						exit_loop = true;
@@ -179,10 +180,10 @@ int main(int argc, char **argv) {
 					switch (ch)
 					{
 					case 113: // q
-						ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] - scale_ref; // z position meters
+						ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] + scale_ref; // z position meters
 						break;
 					case 97: // a 
-						ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] + scale_ref;
+						ctrl_ref_XYZ[2] = ctrl_ref_XYZ[2] - scale_ref;
 						break;
 					case 107: // k
 						ctrl_ref_XYZ[3] = ctrl_ref_XYZ[3] - 5; // the yaw angle 
